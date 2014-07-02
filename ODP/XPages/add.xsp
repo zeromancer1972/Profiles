@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom">
+
+	<xc:_layoutBS3 color="#333F4F" navbarTopInverse="true"
+		hideLeftColumn="true" hideRightColumn="true" pageTitle="Add to your network">
+		<xp:this.facets>
+			<xp:div xp:key="facetMiddle">
+				<div>
+					<a href="#">
+						<div class="circle circle-box">Co-worker</div>
+					</a>
+					<a href="#">
+						<div class="circle circle-box">Team member</div>
+					</a>
+					<a href="#">
+						<div class="circle circle-box">Boss</div>
+					</a>
+				</div>
+			</xp:div>
+		</xp:this.facets>
+	</xc:_layoutBS3>
+</xp:view>

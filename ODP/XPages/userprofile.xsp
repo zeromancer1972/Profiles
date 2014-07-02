@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core"
+	xmlns:xc="http://www.ibm.com/xsp/custom"
+	xmlns:xe="http://www.ibm.com/xsp/coreex">
+	<xp:this.data>
+		<xp:dominoDocument var="doc" action="openDocument"></xp:dominoDocument>
+	</xp:this.data>
+
+
+	<xc:_layoutBS3 navbarTopInverse="true" color="#333F4F"
+		hideLeftColumn="#{javascript:currentDocument.isEditable()}"
+		hideRightColumn="#{javascript:currentDocument.isEditable()}">
+		<xp:this.facets>
+			<xp:div xp:key="facetRight">
+				<xc:_avatar
+					unid="#{javascript:currentDocument.getDocument().getUniversalID()}">
+				</xc:_avatar>
+				<xc:_skills
+					unid="#{javascript:currentDocument.getDocument().getUniversalID()}">
+				</xc:_skills>
+				<xc:_projects
+					unid="#{javascript:currentDocument.getDocument().getUniversalID()}">
+				</xc:_projects>
+				<xc:_leads
+					unid="#{javascript:currentDocument.getDocument().getUniversalID()}">
+				</xc:_leads>
+			</xp:div>
+			<xp:div xp:key="facetHelp">This is a profile page</xp:div>
+			<xp:div xp:key="facetMiddle">
+				<xc:_profileRead
+					unid="#{javascript:currentDocument.getDocument().getUniversalID()}"
+					rendered="#{javascript:!currentDocument.isEditable()}">
+				</xc:_profileRead>
+				<xc:_profileEdit
+					unid="#{javascript:currentDocument.getDocument().getUniversalID()}"
+					rendered="#{javascript:currentDocument.isEditable()}">
+				</xc:_profileEdit>
+			</xp:div>
+		</xp:this.facets>
+	</xc:_layoutBS3>
+	<xc:ccBSCKE></xc:ccBSCKE>
+</xp:view>

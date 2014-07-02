@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<xp:this.data>
+		<xp:dominoView var="view1" viewName="birthdays"></xp:dominoView>
+	</xp:this.data>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+			<span class="fa fa-glass"></span>&#160;
+			Upcoming birthdays</h4>
+		</div>
+		<table class="table table-condensed table-striped table-hover panel-body">
+
+			<th>Name</th>
+			<th>Date</th>
+
+			<xp:repeat id="repeat1" rows="999" value="#{view1}" var="doc">
+				<tr>
+
+					<td>
+						<xp:link escape="true" id="link1">
+							<xp:this.text><![CDATA[#{javascript:doc.getDocument().getItemValueString("userFirstName")+" "+doc.getDocument().getItemValueString("userLastName");}]]></xp:this.text>
+							<xp:this.value><![CDATA[#{javascript:"/userprofile.xsp?action=openDocument&documentId="+doc.getDocument().getUniversalID()}]]></xp:this.value>
+						</xp:link>
+					</td>
+					
+					<td>
+						<xp:link escape="true" id="link3">
+							<xp:this.text><![CDATA[#{javascript:var date = doc.getDocument().getItemValueDateTimeArray("userBirthday").elementAt(0);
+var formatter:java.text.SimpleDateFormat = new java.text.SimpleDateFormat("dd. MMMM");
+var age = @Year(@Today())-@Year(date.toJavaDate());
+return formatter.format(date.toJavaDate())+" (wird "+age+")";}]]></xp:this.text>
+							<xp:this.value><![CDATA[#{javascript:"/userprofile.xsp?action=openDocument&documentId="+doc.getDocument().getUniversalID()}]]></xp:this.value>
+
+
+						</xp:link>
+					</td>
+
+				</tr>
+			</xp:repeat>
+		</table>
+		<div class="panel-footer">
+			<xp:pager partialRefresh="true" id="pager1" for="repeat1"
+				alwaysCalculateLast="true">
+				<xp:pagerControl type="First" id="pagerControl1"></xp:pagerControl>
+				<xp:pagerControl type="Previous" id="pagerControl2"></xp:pagerControl>
+				<xp:pagerControl type="Group" id="pagerControl5"></xp:pagerControl>
+				<xp:pagerControl type="Next" id="pagerControl3"></xp:pagerControl>
+				<xp:pagerControl type="Last" id="pagerControl4"></xp:pagerControl>
+			</xp:pager>
+		</div>
+	</div>
+</xp:view>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom">
+
+	<xc:_layoutBS3 navbarTopInverse="true" color="#333F4F"
+		pageTitle="Ooops!" hideLeftColumn="true" hideRightColumn="true">
+		<xp:this.facets>
+			<xp:div xp:key="facetMiddle">
+				<label>Error message</label>
+				<xp:text styleClass="alert alert-warning msg"
+					escape="true" id="computedField1" value="#{requestScope.error}">
+				</xp:text>
+				<xp:section id="section1" initClosed="true"
+					header="Click here for details">
+					<pre>
+						<xp:text escape="false" id="computedField"
+							styleClass="code">
+							<xp:this.value>
+								<![CDATA[#{javascript:var stackTrace ="";
+var trace = requestScope.error.getStackTrace() ;
+
+for( var i = 0; i < trace.length; i++){
+stackTrace += trace[i] + '<br/>';
+}
+
+return stackTrace;
+}]]>
+							</xp:this.value>
+						</xp:text>
+					</pre>
+				</xp:section>
+			</xp:div>
+		</xp:this.facets>
+	</xc:_layoutBS3>
+</xp:view>

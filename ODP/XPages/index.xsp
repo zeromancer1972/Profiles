@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom">
+
+	<xc:_layoutBS3 color="#333F4F" navbarTopInverse="true">
+		<xc:this.pageTitle><![CDATA[#{javascript:"Welcome to <i>"+@DbTitle()+"</i>"}]]></xc:this.pageTitle>
+		<xp:this.facets>
+			<xp:div xp:key="facetMiddle">
+				<xc:_latest></xc:_latest>
+				<xc:_birthdays></xc:_birthdays>
+			</xp:div>
+			<xp:div xp:key="facetRight">
+				<xc:_tagcloud></xc:_tagcloud></xp:div>
+			<xp:div xp:key="facetHelp">
+				This application will help you to find experts, colleagues and friends.
+				<br />
+				Show your profile, too, for others!
+			</xp:div>
+		</xp:this.facets>
+	</xc:_layoutBS3>
+</xp:view>

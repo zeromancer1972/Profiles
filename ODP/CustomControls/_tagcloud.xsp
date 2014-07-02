@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xe="http://www.ibm.com/xsp/coreex">
+	<h3>Tags</h3>
+	<xe:tagCloud id="tagCloud1" sliderVisible="true">
+		<xe:this.cloudData>
+			<xe:dominoViewCloudData viewName="tags" sortTags="alphabet"
+				linkTargetPage="/search.xsp" linkRequestParam="query">
+			</xe:dominoViewCloudData>
+		</xe:this.cloudData>
+	</xe:tagCloud>
+	<hr/>
+</xp:view>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<xp:this.data>
+		<xp:dominoDocument var="doc" action="openDocument"
+			documentId="#{javascript:compositeData.unid}">
+		</xp:dominoDocument>
+	</xp:this.data>
+	
+	<xp:image id="image1" style="width:100%"
+		styleClass="img-thumbnail">
+		<xp:this.url><![CDATA[#{javascript:var user = doc.getDocument();
+var path = "/" + "/0/";
+var att = @Subset(@AttachmentNames(),1);
+if(att.equals("")){
+	return "avatar.png";
+} else {
+	return path + user.getUniversalID()+"/$FILE/"+att;
+}
+}]]></xp:this.url>
+		<xp:this.title><![CDATA[#{javascript:return "Hallo, das bin ich: "+doc.getItemValueString("userFirstName")+" "+doc.getItemValueString("userLastName")}]]></xp:this.title>
+	</xp:image>
+
+</xp:view>

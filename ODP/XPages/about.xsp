@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom">
+	<xc:_layoutBS3 navbarTopInverse="true" color="#333F4F"
+		pageTitle="Help">
+		<xp:this.facets>
+			<xp:div xp:key="facetHelp">This page gives you help for using this application and improving your profile</xp:div>
+		</xp:this.facets>
+	</xc:_layoutBS3>
+</xp:view>

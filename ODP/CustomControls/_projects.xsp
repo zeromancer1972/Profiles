@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+<h3>Projects</h3>
+	<xp:repeat id="repeat1" rows="30" value="#{doc.userCurrent}"
+		var="skill">
+		<xp:link id="label1" styleClass="badge" disableTheme="true"
+			value="search.xsp">
+			<xp:this.parameters>
+				<xp:parameter name="query"
+					value="#{javascript:skill}">
+				</xp:parameter>
+			</xp:this.parameters>
+			<xp:this.text><![CDATA[#{javascript:@Left(skill, 15)+"..."}]]></xp:this.text>
+		</xp:link>
+		&#160;
+	</xp:repeat>
+	<hr/>
+</xp:view>

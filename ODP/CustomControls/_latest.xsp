@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<xp:this.data>
+		<xp:dominoView var="view1" viewName="latest"></xp:dominoView>
+	</xp:this.data>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+			<span class="fa fa-fire"></span>&#160;
+			Latest profiles</h4>
+		</div>
+		<table class="table table-condensed table-striped table-hover panel-body">
+			<th>Lastname</th>
+			<th>Firstname</th>
+			<th>E-Mail</th>
+			<th>Phone Office</th>
+			<th>Phone Private</th>
+			<th>Mobile</th>
+			<xp:repeat id="repeat1" rows="10" value="#{view1}"
+				var="doc">
+				<tr>
+					<td>
+						<xp:link escape="true" id="link1">
+							<xp:this.text><![CDATA[#{javascript:doc.getDocument().getItemValueString("userLastName");}]]></xp:this.text>
+							<xp:this.value><![CDATA[#{javascript:"/userprofile.xsp?action=openDocument&documentId="+doc.getDocument().getUniversalID()}]]></xp:this.value>
+						</xp:link>
+					</td>
+					<td>
+						<xp:link escape="true" id="link2">
+							<xp:this.text><![CDATA[#{javascript:doc.getDocument().getItemValueString("userFirstName");}]]></xp:this.text>
+							<xp:this.value><![CDATA[#{javascript:"/userprofile.xsp?action=openDocument&documentId="+doc.getDocument().getUniversalID()}]]></xp:this.value>
+						</xp:link>
+					</td>
+					<td>
+						<xp:link escape="true" id="link3">
+							<xp:this.text><![CDATA[#{javascript:doc.getDocument().getItemValueString("userEmail");}]]></xp:this.text>
+							<xp:this.value><![CDATA[#{javascript:"/userprofile.xsp?action=openDocument&documentId="+doc.getDocument().getUniversalID()}]]></xp:this.value>
+						</xp:link>
+					</td>
+					<td>
+						<xp:link escape="true" id="link4">
+							<xp:this.text><![CDATA[#{javascript:doc.getDocument().getItemValueString("userPhone1");}]]></xp:this.text>
+							<xp:this.value><![CDATA[#{javascript:"/userprofile.xsp?action=openDocument&documentId="+doc.getDocument().getUniversalID()}]]></xp:this.value>
+						</xp:link>
+					</td>
+					<td>
+						<xp:link escape="true" id="link5">
+							<xp:this.text><![CDATA[#{javascript:doc.getDocument().getItemValueString("userPhone2");}]]></xp:this.text>
+							<xp:this.value><![CDATA[#{javascript:"/userprofile.xsp?action=openDocument&documentId="+doc.getDocument().getUniversalID()}]]></xp:this.value>
+						</xp:link>
+					</td>
+					<td>
+						<xp:link escape="true" id="link6">
+							<xp:this.text><![CDATA[#{javascript:doc.getDocument().getItemValueString("userCell");}]]></xp:this.text>
+							<xp:this.value><![CDATA[#{javascript:"/userprofile.xsp?action=openDocument&documentId="+doc.getDocument().getUniversalID()}]]></xp:this.value>
+						</xp:link>
+					</td>
+				</tr>
+			</xp:repeat>
+		</table>
+		<div class="panel-footer">
+			<xp:pager partialRefresh="true" id="pager1" for="repeat1"
+				alwaysCalculateLast="true">
+				<xp:pagerControl type="First" id="pagerControl1"></xp:pagerControl>
+				<xp:pagerControl type="Previous" id="pagerControl2"></xp:pagerControl>
+				<xp:pagerControl type="Group" id="pagerControl5"></xp:pagerControl>
+				<xp:pagerControl type="Next" id="pagerControl3"></xp:pagerControl>
+				<xp:pagerControl type="Last" id="pagerControl4"></xp:pagerControl>
+			</xp:pager></div>
+	</div>
+</xp:view>

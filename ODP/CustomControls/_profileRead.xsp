@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<xp:this.data>
+		<xp:dominoDocument var="doc" action="openDocument"
+			documentId="#{javascript:compositeData.unid}">
+		</xp:dominoDocument>
+	</xp:this.data>
+	<div class="">
+		<div class="well">
+			<div class="row">
+				<div class="col-lg-12">
+					<h1>
+						<xp:inputText id="inputText4" value="#{doc.userFirstName}">
+						</xp:inputText>
+						&#160;
+						<xp:inputText id="inputText3" value="#{doc.userLastName}">
+						</xp:inputText>
+					</h1>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="form-group">
+						<label>Phone Office</label>
+						<xp:inputText id="inputText1" value="#{doc.userPhone1}">
+						</xp:inputText>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="form-group">
+						<label>Phone Private</label>
+						<xp:inputText id="inputText2" value="#{doc.userPhone2}">
+						</xp:inputText>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="form-group">
+						<label>E-Mail</label>
+						<xp:inputText id="inputText5" value="#{doc.userEmail}">
+						</xp:inputText>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="form-group">
+						<label>Mobile</label>
+						<xp:inputText id="inputText6" value="#{doc.userCell}">
+						</xp:inputText>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="form-group">
+						<label>Birthday</label>
+						<xp:inputText id="inputText7" value="#{doc.userBirthday}">
+							<xp:this.converter>
+								<xp:convertDateTime locale="de"
+									pattern="MM/dd/yyyy">
+								</xp:convertDateTime>
+							</xp:this.converter>
+						</xp:inputText>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="form-group">
+						<label>Languages</label>
+						<xp:inputText id="inputText8" value="#{doc.userLanguages}"
+							multipleSeparator=", " multipleTrim="true">
+						</xp:inputText>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="form-group">
+						<label>Websites, Profiles, Blogs</label>
+						<xp:repeat id="repeat1" rows="30" value="#{doc.userWebsites}"
+							var="site">
+							<xp:link escape="true" text="#{javascript:site}" id="link1"
+								value="#{javascript:site}" target="_blank">
+							</xp:link>
+							<xp:br></xp:br>
+						</xp:repeat>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="form-group">
+						<label>Hobbies, Interests</label>
+						<xp:inputText id="inputText14" value="#{doc.userHobbies}"
+							multipleSeparator=", " multipleTrim="true">
+						</xp:inputText>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- RTF -->
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="form-group">
+					<label>About me</label>
+					<xp:inputRichText id="inputRichText1" value="#{doc.userWhoAmI}">
+						<xp:this.dojoAttributes>
+							<xp:dojoAttribute name="toolbarType" value="Slim">
+							</xp:dojoAttribute>
+							<xp:dojoAttribute name="extraPlugins" value="autogrow">
+							</xp:dojoAttribute>
+							<xp:dojoAttribute name="skin">
+								<xp:this.value><![CDATA[#{javascript:return @ClientType().equals("Web") ? "BootstrapCK-Skin,/"+database.getFilePath()+"/bscke/" : ""}]]></xp:this.value>
+							</xp:dojoAttribute>
+							<xp:dojoAttribute name="width" value="100%">
+							</xp:dojoAttribute>
+						</xp:this.dojoAttributes>
+						<xp:this.dojoType><![CDATA[#{javascript:return @ClientType().equals("Web") ? "org.openntf.filesilo.CKEDITOR" : ""}]]></xp:this.dojoType>
+					</xp:inputRichText>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="form-group">
+					<label>
+						What others should not know about me
+					</label>
+					<xp:inputRichText id="inputRichText2" value="#{doc.userSecrets}">
+						<xp:this.dojoAttributes>
+							<xp:dojoAttribute name="toolbarType" value="Slim">
+							</xp:dojoAttribute>
+							<xp:dojoAttribute name="extraPlugins" value="autogrow">
+							</xp:dojoAttribute>
+							<xp:dojoAttribute name="skin">
+								<xp:this.value><![CDATA[#{javascript:return @ClientType().equals("Web") ? "BootstrapCK-Skin,/"+database.getFilePath()+"/bscke/" : ""}]]></xp:this.value>
+							</xp:dojoAttribute>
+							<xp:dojoAttribute name="width" value="100%">
+							</xp:dojoAttribute>
+						</xp:this.dojoAttributes>
+						<xp:this.dojoType><![CDATA[#{javascript:return @ClientType().equals("Web") ? "org.openntf.filesilo.CKEDITOR" : ""}]]></xp:this.dojoType>
+					</xp:inputRichText>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="form-group">
+					<label>
+						Me
+					</label>
+					<xp:inputRichText id="inputRichText3" value="#{doc.userHabits}">
+						<xp:this.dojoAttributes>
+							<xp:dojoAttribute name="toolbarType" value="Slim">
+							</xp:dojoAttribute>
+							<xp:dojoAttribute name="extraPlugins" value="autogrow">
+							</xp:dojoAttribute>
+							<xp:dojoAttribute name="skin">
+								<xp:this.value><![CDATA[#{javascript:return @ClientType().equals("Web") ? "BootstrapCK-Skin,/"+database.getFilePath()+"/bscke/" : ""}]]></xp:this.value>
+							</xp:dojoAttribute>
+							<xp:dojoAttribute name="width" value="100%">
+							</xp:dojoAttribute>
+						</xp:this.dojoAttributes>
+						<xp:this.dojoType><![CDATA[#{javascript:return @ClientType().equals("Web") ? "org.openntf.filesilo.CKEDITOR" : ""}]]></xp:this.dojoType>
+					</xp:inputRichText>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="form-group">
+					<label>Experience level</label>
+					<xp:inputText id="inputText9" value="#{doc.userLevel}">
+					</xp:inputText>
+				</div>
+			</div>
+			<div class="col-lg-6">
+
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="form-group">
+					<label>Company (origin)</label>
+					<xp:inputText id="inputText11" value="#{doc.userCompany}">
+					</xp:inputText>
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<div class="form-group">
+					<label>
+						Location
+						&#160;
+						<span class="fa fa-map-marker"></span>
+					</label>
+					<xp:link id="inputText12" text="#{doc.userLocation}"
+						target="_blank">
+
+						<xp:this.value><![CDATA[#{javascript:"https://www.google.de/maps/place/"+doc.getItemValueString("userLocation")}]]></xp:this.value>
+					</xp:link>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="form-group">
+					<label>Team</label>
+					<xp:inputText id="inputText10" value="#{doc.userTeam}"
+						multipleSeparator=", " multipleTrim="true">
+					</xp:inputText>
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<div class="form-group">
+					<label>Position</label>
+					<xp:inputText id="inputText13" value="#{doc.userPosition}">
+					</xp:inputText>
+				</div>
+			</div>
+		</div>
+	</div>
+</xp:view>

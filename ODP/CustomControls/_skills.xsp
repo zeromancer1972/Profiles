@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<xp:this.data>
+		<xp:dominoDocument var="doc" action="openDocument"
+			documentId="#{javascript:compositeData.unid}">
+		</xp:dominoDocument>
+	</xp:this.data>
+	<h3>Skills &amp; Expertises</h3>
+	<xp:repeat id="repeat1" rows="30" value="#{doc.userSkills}"
+		var="skill">
+		<xp:link text="#{javascript:skill}" id="label1"
+			styleClass="badge" disableTheme="true" value="search.xsp">
+		<xp:this.parameters>
+			<xp:parameter name="query" value="#{javascript:skill}"></xp:parameter>
+		</xp:this.parameters></xp:link>
+		
+	</xp:repeat>
+	<hr/>
+</xp:view>
